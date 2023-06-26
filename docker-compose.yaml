@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  mosquitto:
+    build:
+      context: ./mosquitto/dockerfile
+      dockerfile: Dockerfile
+    container_name: mqtt-auth-poc-mosquitto
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/jwt_auth.so:/mosquitto/jwt_auth.so
+      - ./mosquitto/secrets/jwtRS256.der.pub:/mosquitto/secrets/jwtRS256.der.pub
+    networks:
+      - mqtt-auth-poc
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+      - "1880:1880"
+
+networks:
+  mqtt-auth-poc:
+    name: mqtt-auth-poc-network
+

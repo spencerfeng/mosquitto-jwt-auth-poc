@@ -1,0 +1,16 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "token": "node ./mosquitto/scripts/generate-jwt.js" 
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0",
+    "mqtt": "^4.3.7"
+  }
+}
